@@ -1,0 +1,121 @@
+//handson on exception handling
+package com.sat;
+
+import java.util.Scanner;
+
+public class Validation1 {
+
+	public static void main(String[] args) {
+		try {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter num over");
+			int overs=sc.nextInt();
+			int runs[]=new int[overs];
+			System.out.println("enter the number of runs for each over");
+			for(int i=0;i<overs;i++) {
+				runs[i]=sc.nextInt();
+				
+			}
+			System.out.println("enter the over number");
+			int number=sc.nextInt();
+			System.out.println(runs[number-1]);
+}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e);
+			
+		}catch(NegativeArraySizeException e) {
+			System.out.println(e);
+		}
+		
+
+	}
+
+}
+
+//handson2
+package com.sat;
+
+import java.util.Scanner;
+
+class CustomException extends Exception{
+	private String name;
+	private int age;
+	public CustomException(String s, int a) {
+		
+	}
+			
+}
+
+public class Validation2 {
+	static void age(int a,String s) throws CustomException{
+		if(a<19)
+			throw new CustomException(s,a);
+		System.out.println(Messages.getString("Validation2.0")+s); //$NON-NLS-1$
+		System.out.println(Messages.getString("Validation2.1")+a); //$NON-NLS-1$
+	}
+
+	public static void main(String[] args) {
+		try {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter player name"); //$NON-NLS-1$
+			String s1=sc.nextLine();
+			System.out.println("enter player age"); //$NON-NLS-1$
+			int a1=sc.nextInt();
+			age(a1,s1);
+		}
+		catch(CustomException e) {
+			System.out.println("custom exception"); //$NON-NLS-1$
+		}
+		
+
+	}
+
+}
+//handson3
+package com.sat;
+
+import java.util.Scanner;
+
+class TeamNotFoundException extends Exception{
+	String tname;
+	public TeamNotFoundException(String tname,String s2) {
+		super();
+		this.tname=tname;
+		
+	}
+	@Override
+	public String toString() {
+		return "TeamNotFoundException [tname=" + tname + "]";
+	}
+	
+}
+
+public class Validation3 {
+	String tname;
+	static void method(String s1,String s2) throws TeamNotFoundException{
+		if(s1!="chennai super kings,deccan chargers,delhi dare devils,mumbai indians,kings xi punjab,rajasthan royals,royal challengers banglore,kolkata knight riders")
+		throw new TeamNotFoundException(s1,s2);
+	
+		System.out.println("winner="+s1);
+		System.out.println("runner="+s2);
+	}
+	
+
+	public static void main(String[] args) {
+		try {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("chennai super kings,deccan chargers,delhi dare devils,mumbai indians,kings xi punjab,rajasthan royals,royal challengers banglore,kolkata knight riders");
+			System.out.println("enter winner tname");
+			String s=sc.next();
+			System.out.println("enter runner tname");
+			String s2=sc.next();
+			method(s,s2);
+		}
+		catch(TeamNotFoundException e) {
+			System.out.println(e);
+		}
+	}
+
+}
+
+

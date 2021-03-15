@@ -1,0 +1,164 @@
+//handson1
+package com.day3;
+class Venue{
+	String name;
+	String city;
+	@Override
+	public String toString() {
+		return "Venue [name=" + name + ", city=" + city + "]";
+	}
+	}
+public class Handson1 {
+
+	public static void main(String[] args) {
+		Venue v=new Venue();
+		System.out.println("venue name");
+		v.name="M.A.Chidambaram stadium";
+		System.out.println(v.name);
+		System.out.println("venue city");
+		v.city="chennai";
+		System.out.println(v.city);
+		
+
+	}
+
+}
+
+
+//handson2
+package com.day3;
+class Player{
+	String name;
+	String country;
+	String skill;
+	
+}
+
+public class Handson2 {
+
+	public static void main(String[] args) {
+		Player p=new Player();
+		System.out.println("player name");
+		p.name="MS.Dhoni";
+		System.out.println(p.name);
+		System.out.println("player country");
+		p.country="INDIA";
+		System.out.println(p.country);
+		System.out.println("player skill");
+		p.skill="ALL ROUNDER";
+		System.out.println(p.skill);
+
+	}
+
+}
+//handson3
+package com.day3;
+class Delivery{
+	long over;
+	long ball;
+	long runs;
+	String batsman;
+	String bowler;
+	String nonstriker;
+}
+
+public class Handson3 {
+
+	public static void main(String[] args) {
+		Delivery d=new Delivery();
+		System.out.println("enter the over");
+		d.over=1;
+		System.out.println(d.over);
+		System.out.println("enter the ball");
+		d.ball=1;
+		System.out.println(d.ball);
+		System.out.println("enter the runs");
+		d.runs=4;
+		System.out.println(d.runs);
+		System.out.println("enter the batsman name");
+		d.batsman ="ms.Dhoni";
+		System.out.println(d.batsman);
+		System.out.println("enter the bowler name");
+		d.bowler="Dale Steyn";
+		System.out.println(d.bowler);
+		System.out.println("enter the nonstriker name");
+		d.nonstriker="Suresh Raina";
+		System.out.println(d.nonstriker);
+		System.out.println("Delivery details");
+		System.out.println("over:"+d.over);
+		System.out.println("ball:"+d.ball);
+		System.out.println("runs:"+d.runs);
+		System.out.println("bowler name:"+d.bowler );
+		System.out.println("batsman name:"+d.batsman );
+		System.out.println("nonstriker name:"+d.nonstriker);
+
+}
+
+}
+//handson4
+package com.day3a;
+import java.util.Scanner;
+
+class Player1{
+	String name;
+	String country;
+	String skill;
+	void player() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter enter player");
+		String input=sc.next();
+		String words[]=input.split(",");
+		name=words[0];
+		country=words[1];
+		skill=words[2];
+		
+	}
+}
+
+public class Handson5 {
+
+	public static void main(String[] args) {
+		Player1 p=new Player1();
+		p.player();
+		System.out.println("player details");
+		System.out.println("player name:"+p.name);
+		System.out.println("player country:"+p.country);
+		System.out.println("player skill:"+p.skill);
+
+}
+
+}
+//handson5
+package com.day3;
+ class Venue1{
+	String name;
+	String city;
+	public void setname(String name) {
+		this.name=name;
+	}
+	public String getname() {
+		return this.name;
+		
+		
+	}
+	public void setcity(String city) {
+		this.city=city;
+	}
+	public String getcity() {
+		return this.city;
+	}
+}
+
+public class Handson5 {
+
+	public static void main(String[] args) {
+		Venue1 v=new Venue1();
+		System.out.println("venue details");
+		v.setname("Green park stadium");
+		System.out.println("venue name:"+v.getname());
+		v.setcity("Kanpur");
+		System.out.println("venue city:"+v.getcity());
+}
+
+}
+
