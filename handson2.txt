@@ -1,4 +1,4 @@
-//Hands-on
+//DAY 8=Hands-on
 1.package com.day7;
 
 import java.util.ArrayList;
@@ -87,6 +87,7 @@ public class Hand3 {
 
 	}
 
+DAY 9 HANDS-ON:
 
 4.package com.day8;
 
@@ -133,16 +134,28 @@ public class Hand1 {
 
 
 }
-5.package com.day8;
+package com.day8;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 class UserMainCode1{
-	static int afterDelete(int count) {
-		return count;
+	static int afterDelete(Map<Integer, String> m) {
+		int k,count=0;
+		Set s1=m.entrySet();
+		Iterator itr=s1.iterator();
+		while(itr.hasNext()) {
+			Entry me=(Map.Entry)itr.next();
+			Integer i=(Integer)itr.next();
+			if(i%3!=0) {
+				count++;
+			}
+	}
+		
+return count;
 		
 	}
 }
@@ -153,24 +166,83 @@ public class Hand2 {
 		Map<Integer,String> m=new HashMap<>();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter value");
-		int n=sc.nextInt();
-		int k;
-		int count=0;
+		int i=sc.nextInt();
+		UserMainCode1 u=new UserMainCode1();
 		System.out.println("enter key value pair");
-		for(int i=0;i<n;i++) {
+		for(int j=0;j<i;j++) {
 			m.put(sc.nextInt(),sc.toString());
+		}
+		
+		System.out.println(u.afterDelete(m));
+		
+			
+	
+	}
+
+}
+3.package com.day8;
+
+import java.util.Scanner;
+import java.util.TreeMap;
+class UserMainCode2{
+	static String getmax(TreeMap h) {
+		String j=(String) h.get(h.lastKey());
+		return j;
+	}
+}
+public class Hand3 {
+
+	public static void main(String[] args) {
+		TreeMap<Integer,String> ht=new TreeMap<>();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("no.of input");
+		int i=sc.nextInt();
+		UserMainCode2 u=new UserMainCode2();
+		for(int j=0;j<i;j++) {
+			ht.put(sc.nextInt(), sc.next());
 			
 		}
-		Set s1=m.keySet();
-		Iterator itr=s1.iterator();
-		while(itr.hasNext()) {
-			Integer i=(Integer)itr.next();
-			if(i%3!=0) {
-				count++;
-			}
+		System.out.println(u.getmax(ht));
 	}
-		System.out.println(count);
 
+}
+4.package com.day8;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeMap;
+class UserMainCode3{
+	static List<String> designation(TreeMap<String,String> t,String des){
+		List<String> lst= new ArrayList<>();
+		for(Entry<String,String> e:t.entrySet()) {
+			if(e.getValue().equals(des)) {
+				lst.add(e.getKey());
+			}
+		}
+		return lst;
+			
+	}
+}
+
+public class Hand4 {
+
+	public static void main(String[] args) {
+	TreeMap<String,String> ht=new TreeMap<>();
+	Scanner sc=new Scanner(System.in);
+	System.out.println("no.of input");
+	int i=sc.nextInt();
+	UserMainCode3 u=new UserMainCode3();
+	for(int j=0;j<i;j++) {
+		ht.put(sc.next(), sc.next());
+		}
+	System.out.println("enter designation to search");
+	String d=sc.next();
+	List<String> lst1=UserMainCode3.designation(ht,d);
+	for(String s1:lst1)
+		System.out.println(s1);
 	}
 
 }
